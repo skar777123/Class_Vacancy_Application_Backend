@@ -17,8 +17,8 @@ export const classFinder = async (res, req) => {
 
 export const login = async (req, res) => {
   const { id, password } = req.body;
+  console.log(id, password);
   try {
-    
     const user = await User.findOne({
       studentId: id,
     });
