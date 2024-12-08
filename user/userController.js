@@ -1,6 +1,7 @@
 import User from "./userModel.js";
 import Class from "../classes/classModel.js";
 import jwt from "jsonwebtoken";
+
 export const classFinder = async (res, req) => {
   const { id } = req.user._id;
   try {
