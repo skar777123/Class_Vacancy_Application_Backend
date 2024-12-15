@@ -2,13 +2,13 @@ import User from "./userModel.js";
 import Class from "../classes/classModel.js";
 import jwt from "jsonwebtoken";
 
-export const classFinder = async (res, req) => {
-  const  id  = req.user._id;
+export const classFinder = async (req, res) => {
+  const  {_id}  = req.user;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(_id);
     const classes = await Class.find({
       occupiedBy: user.course + "-" + user.section,
-    });  
+    });
     res.json(classes);
   } catch (err) {
     res.status(404).json({ message: "No classes found", error: err.message });
