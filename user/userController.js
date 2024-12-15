@@ -3,7 +3,7 @@ import Class from "../classes/classModel.js";
 import jwt from "jsonwebtoken";
 
 export const classFinder = async (res, req) => {
-  const { id } = req.user._id;
+  const  id  = req.user._id;
   try {
     const user = await User.findById(id);
     const classes = await Class.find({
