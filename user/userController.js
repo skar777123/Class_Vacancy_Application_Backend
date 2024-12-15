@@ -8,7 +8,7 @@ export const classFinder = async (res, req) => {
     const user = await User.findById(id);
     const classes = await Class.find({
       occupiedBy: user.course + "-" + user.section,
-    });
+    });  
     res.json(classes);
   } catch (err) {
     res.status(404).json({ message: "No classes found", error: err.message });
