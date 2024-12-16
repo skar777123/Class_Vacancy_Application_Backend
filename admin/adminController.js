@@ -54,14 +54,14 @@ export const login = async (req, res) => {
 };
 
 export const register = async (req, res) => {
-  const { username, idno, password, role } = req.body;
+  const { name, idno, password, role } = req.body;
   try {
     const user = await Admin.findOne({ idno: idno });
     if (user) {
       return res.status(400).json({ msg: "User already exists." });
     }
     const admin = new Admin({
-      username,
+      name,
       idno,
       password,
       role,
