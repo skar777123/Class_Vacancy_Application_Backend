@@ -1,5 +1,6 @@
 import Admin from "./adminModel.js";
 import Class from "../classes/classModel.js";
+import jwt from "jsonwebtoken";
 
 export const allocateClass = async (req, res) => {
   const { id, faculty, occupiedBy, startTime, endTime } = req.body;
