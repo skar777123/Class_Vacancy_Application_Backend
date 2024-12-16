@@ -27,6 +27,14 @@ const timetable = new Schema(
       type: String,
       required: true,
     },
+    floor:{
+      type:String,
+      required:true
+    },
+    room:{
+      type:String,
+      required:true
+    }
   },
   {
     timestamps: true,
