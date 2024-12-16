@@ -7,7 +7,6 @@ const adminSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ["faculty", "cr"],
     required: true,
   },
   idno: {
