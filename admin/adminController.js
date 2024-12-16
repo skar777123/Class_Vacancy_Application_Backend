@@ -52,3 +52,30 @@ export const login = async (req, res) => {
     });
   }
 };
+
+export const register = async (req, res) => {
+  const { username, idno, password, email, phone } = req.body;
+  try {
+    const user = await Admin.findOne({ idno: idno });
+    if (user) {
+      return res.status(400).json({ msg: "User already exists." });
+    }
+    const admin = new Admin({
+      username,
+      idno,
+      password,
+      role,
+    });
+    const savedAdmin = await admin.save();
+    return res.status(201).json({
+      success: true,
+      message: `User created successfully`,
+      user: savedAdmin,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
