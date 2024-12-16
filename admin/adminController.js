@@ -54,7 +54,7 @@ export const login = async (req, res) => {
 };
 
 export const register = async (req, res) => {
-  const { username, idno, password, email, phone } = req.body;
+  const { username, idno, password, role } = req.body;
   try {
     const user = await Admin.findOne({ idno: idno });
     if (user) {
